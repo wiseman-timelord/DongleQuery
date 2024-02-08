@@ -6,7 +6,7 @@ Alpha...
 - Waiting for GPT to refresh, done soon.
 
 ### DESCRIPTION
-In an attempt to turn off the hotspot feature on my dongle modem, while it is attached to my router, I decided to investigate the AT commands available, therein, I may have future dongles, that I wish to do this on also, hence, I made a program to do, just that and a little more.
+In an attempt to turn off the hotspot feature on my dongle modem, in order to, reduce power usage and optimize performanve, I decided to investigate the AT commands available, therein, I may have future dongles I wish to interact with, hence, I made a program to do, just that and a little more. This program will also assist people identify the hardware/software on their Dongle, for example, updating or getting a custom ROM for, the Dongle.
 
 ### FEATURES
 - Soon...
