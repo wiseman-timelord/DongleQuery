@@ -17,9 +17,8 @@ echo   ^| ^| ^| ^|^/ ^_ ^\^|  ^_ ^\ ^/ ^_  ^| ^|^/ ^_ ^\ ^| ^| ^| ^| ^| ^|^/ ^_ 
 echo   ^| ^|^_^| ^| (^_) ^| ^| ^| ^| (^_^| ^| ^|  ^_^_^/ ^|^_^| ^| ^|^_^| ^|  ^_^_^/ ^|  ^| ^|^_^| ^|
 echo   ^|^_^_^_^_^/ ^\^_^_^_^/^|^_^| ^|^_^|^\^_^_  ^|^_^|^\^_^_^_^|^\^_^_^\^_^\^\^_^_^_^_^|^\^_^_^_^|^_^|   ^\^_^_  ^|
 echo                       ^|^_^_^_^/                              ^|^_^_^_^/
+echo.
 echo ========================( DongleQuery )========================
-echo.
-echo.
 echo.
 echo.
 echo.
@@ -46,7 +45,6 @@ echo.
 echo.
 echo.
 echo.
-echo.
 echo ---------------------------------------------------------------
 set /p choice=Select, Options=1-2, Exit=X: 
 if "%choice%"=="1" set scriptName=basicinfo.ps1
@@ -57,20 +55,18 @@ if not defined scriptName (
 	timeout /t 1 /nobreak >nul
     goto menu
 )
-
-echo Starting Launch Sequence...
+echo.
 timeout /t 1 /nobreak >nul
-echo Checking PowerShell..
+echo Checking PowerShell Capabilities..
+timeout /t 1 /nobreak >nul
 where pwsh >nul 2>&1
 if %ERRORLEVEL% equ 0 (
-    echo ..Capabilities Detected.
-    echo Launching Psc Script..
+    echo ...Launching As Psc Script..
     timeout /t 1 /nobreak >nul
     pwsh.exe -NoProfile -ExecutionPolicy Bypass -File ".\%scriptName%"
     echo ..Psc Process Exited.
 ) else (
-    echo ..Capabilities Detected.
-    echo Launching Ps Script..
+    echo ...Launching As Ps Script..
     timeout /t 1 /nobreak >nul
     powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\%scriptName%"
     echo ..Ps Process Exited.
