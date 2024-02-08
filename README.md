@@ -72,7 +72,7 @@ Processes completed; Check details above, then Press any key...
 ### REQUIREMENTS
 - Windows Batch Support
 - Pwsh/PowerShell (As are compatible with scripts)
-- A non-active "Usb Dongle Modem" with a valid relating com port.
+- Usb "Mobile Broadband"/"LTE Modem" with relating com ports.
 
 ### NOTATION
 - Sing along now.. ["Dongle Query..."](https://www.youtube.com/watch?v=QGKiC2suCHQ)
