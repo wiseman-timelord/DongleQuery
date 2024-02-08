@@ -4,7 +4,7 @@ $global:serialPort_5fd = $null
 $global:atCommands_0fn = @(
     "AT",
     "AT+CGMI",  # Manufacturer identification
-    "AT+CGMM",  # Model identification
+	"AT+CGMM",  # Model Information
     "AT+CGMR",  # Revision identification
     "ATI"       # Device identification
 )
@@ -17,7 +17,7 @@ function Initialize-Script {
 
 # Finalization section.
 function Finalize-Script {
-    Write-Host "`nProcesses completed; Check details above, then press any key to continue...`n" -NoNewline
+    Write-Host "`nProcesses completed; Check details above, then Press any key...`n" -NoNewline
     $null = Read-Host
 }
 
@@ -25,6 +25,7 @@ function Finalize-Script {
 function Request-ComPort {
     Write-Host "Please enter the COM port number (e.g., 5 for COM5): " -NoNewline
     $global:comPort_3io = "COM" + (Read-Host)
+	Write-Host
 }
 
 # Function to configure the SerialPort object
@@ -38,6 +39,7 @@ function Configure-SerialPort {
         Write-Host "Failed to open serial port $global:comPort_3io. Error: $_"
         exit
     }
+	Write-Host
 }
 
 # Function to send AT commands to the modem
