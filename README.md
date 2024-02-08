@@ -12,7 +12,54 @@ In an attempt to turn off the hotspot feature on my dongle modem, while it is at
 - Soon...
 
 ### PREVIEW
-- Soon...
+- Basic Info...
+```
+
+========================( DongleQuery )========================
+
+Please enter the COM port number (e.g., 5 for COM5): 3
+
+Configuring SerialPort object for COM3...
+Serial port COM3 opened successfully.
+
+Sending AT to the modem on COM3...
+Spam prevention, waiting 2 seconds...
+Response for AT:
+OK
+
+Sending AT+CGMI to the modem on COM3...
+Spam prevention, waiting 2 seconds...
+Response for AT+CGMI:
+QUALCOMM INCORPORATED
+
+OK
+
+Sending AT+CGMR to the modem on COM3...
+Spam prevention, waiting 2 seconds...
+Response for AT+CGMR:
+#####-####-#-#.#.#-##  #  [### ## #### ##:##:##]
+
+OK
+
+Sending ATI to the modem on COM3...
+Spam prevention, waiting 2 seconds...
+Response for ATI:
+Manufacturer: QUALCOMM INCORPORATED
+Model: 0
+Revision: #####-####-#-#.#.#-##  #  [### ## #### ##:##:##]
+SVN: 00
+IMEI: ###############
++GCAP: +CGSM
+
+OK
+
+Closing the SerialPort connection...
+
+Processes completed; Check details above, then Press any key...
+```
+- Commands...
+```
+```
 
 ### USAGE
 1. Go to "Device Manager", and look at what Com Ports are being used, in my case the modem was using 2 com ports, one for active and one for inactive, I needed the one for inactive states, though you may test other ones.
