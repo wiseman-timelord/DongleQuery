@@ -2,6 +2,7 @@
 
 # Initialization
 Clear-Host
+Write-Host "`n========================( DongleQuery )========================`n"
 
 # List of AT commands the modem
 $atCommands = @(

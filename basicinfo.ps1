@@ -2,6 +2,7 @@
 
 # Initialization
 Clear-Host
+Write-Host "`n========================( DongleQuery )========================`n"
 
 # Requesting COM port number from user
 Write-Host "Requesting COM port number from user..."
@@ -25,9 +26,12 @@ foreach ($atCommand in $atCommands) {
     Write-Host "Sending $atCommand to the modem on $comPort..."
     try {
         $serialPort.WriteLine($atCommand + "`r")
-        Start-Sleep -Seconds 1
+        
+        # Wait a bit before attempting to read the response
+        Write-Host "Spam prevention, waiting 2s..."
+        Start-Sleep -Seconds 2
 
-        # Directly attempt to read the response without looping
+        # Directly attempt to read the response
         $response = $serialPort.ReadExisting()
         if ($response) {
             Write-Host "Response for $($atCommand): $response"
