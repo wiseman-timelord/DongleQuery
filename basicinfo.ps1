@@ -1,48 +1,79 @@
-# basicinfo.ps1
+# Global Variables
+$global:comPort = $null
+$global:serialPort = $null
+$global:atCommands = @(
+    "AT",
+    "AT+CGMI",  # Manufacturer identification
+    "AT+CGMM",  # Model identification
+    "AT+CGMR",  # Revision identification
+    "AT+CPIN?", # SIM PIN status
+    "ATI"       # Device identification
+)
 
-# Initialization
-Clear-Host
-Write-Host "`n========================( DongleQuery )========================`n"
-
-# Requesting COM port number from user
-Write-Host "Requesting COM port number from user..."
-$port = Read-Host "Please enter the COM port number (e.g., 5 for COM5)"
-
-# Configuring SerialPort object for COM port
-Write-Host "Configuring SerialPort object for COM$port..."
-$comPort = "COM" + $port
-$serialPort = new-object System.IO.Ports.SerialPort $comPort, 9600, "None", 8, "One"
-try {
-    $serialPort.Open()
-    Write-Host "Serial port $comPort opened successfully."
-} catch {
-    Write-Host "Failed to open serial port $comPort. Error: $_"
-    exit
+# Initialization section
+function Initialize-Script {
+    Clear-Host
+    Write-Host "`n========================( DongleQuery )========================`n"
 }
 
-$atCommands = @("AT", "AT+CGMI", "AT+CGMM", "AT+CGMR", "AT+CPIN?", "AT+CSQ", "AT+CREG?", "AT+COPS?", "ATI")
+# Function to request COM port number from the user
+function Request-ComPort {
+    Write-Host "Please enter the COM port number (e.g., 5 for COM5):"
+    $global:comPort = "COM" + (Read-Host)
+}
 
-foreach ($atCommand in $atCommands) {
-    Write-Host "Sending $atCommand to the modem on $comPort..."
+# Function to configure the SerialPort object
+function Configure-SerialPort {
+    Write-Host "Configuring SerialPort object for $global:comPort..."
+    $global:serialPort = New-Object System.IO.Ports.SerialPort $global:comPort, 9600, "None", 8, "One"
     try {
-        $serialPort.WriteLine($atCommand + "`r")
-        
-        # Wait a bit before attempting to read the response
-        Write-Host "Spam prevention, waiting 2s..."
-        Start-Sleep -Seconds 2
-
-        # Directly attempt to read the response
-        $response = $serialPort.ReadExisting()
-        if ($response) {
-            Write-Host "Response for $($atCommand): $response"
-        } else {
-            Write-Host "No response received for $atCommand."
-        }
+        $global:serialPort.Open()
+        Write-Host "Serial port $global:comPort opened successfully."
     } catch {
-        Write-Host "Failed to send $atCommand or read response. Error: $_"
+        Write-Host "Failed to open serial port $global:comPort. Error: $_"
+        exit
     }
 }
 
-$serialPort.Close()
-Write-Host "Closing the SerialPort connection..."
-Write-Host "Process completed. Check above for modem responses and any debug information."
+# Function to send AT commands to the modem
+function Send-ATCommands {
+    foreach ($atCommand in $global:atCommands) {
+        Write-Host "Sending $atCommand to the modem on $global:comPort..."
+        try {
+            $global:serialPort.WriteLine($atCommand + "`r")
+            Write-Host "Spam prevention, waiting 2 seconds..."
+            Start-Sleep -Seconds 2
+            
+            $response = $global:serialPort.ReadExisting()
+            if ($response) {
+                Write-Host "Response for $($atCommand): $response"
+            } else {
+                Write-Host "No response received for $atCommand."
+            }
+        } catch {
+            Write-Host "Failed to send $atCommand or read response. Error: $_"
+        }
+    }
+}
+
+# Function to close the SerialPort connection
+function Close-SerialPort {
+    if ($global:serialPort -ne $null -and $global:serialPort.IsOpen) {
+        $global:serialPort.Close()
+        Write-Host "Closing the SerialPort connection..."
+    }
+}
+
+# Finalization section
+function Finalize-Script {
+    Write-Host "`nProcesses completed. Check above for port response information.`n"
+    Start-Sleep -Seconds 5
+}
+
+# Script Entry Point
+Initialize-Script
+Request-ComPort
+Configure-SerialPort
+Send-ATCommands
+Close-SerialPort
+Finalize-Script
