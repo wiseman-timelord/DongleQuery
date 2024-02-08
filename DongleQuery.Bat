@@ -1,5 +1,5 @@
 @echo off
-mode con cols=64 lines=40
+mode con cols=64 lines=45
 color 80
 title FilesCollect-Py
 cd /d "%~dp0"
@@ -29,11 +29,16 @@ echo.
 echo.
 echo.
 echo.
+echo.
+echo.
 echo                      1. Basic Dongle Info,
 echo.
 echo                      2. List AT Commands,
 echo.
 echo                        X. Exit Launcher.
+echo.
+echo.
+echo.
 echo.
 echo.
 echo.
@@ -72,7 +77,6 @@ if %ERRORLEVEL% equ 0 (
     echo ..Ps Process Exited.
     echo.
 )
-pause
 echo Returning to menu..
 timeout /t 2 /nobreak >nul
 goto menu

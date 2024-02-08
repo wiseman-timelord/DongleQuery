@@ -1,9 +1,9 @@
 # commands.ps1
 
 # Global Variables
-$global:comPort = $null
-$global:serialPort = $null
-$global:atCommands = @("AT", "AT+CLAC")  # Example commands
+$global:comPort_9iv = $null
+$global:serialPort_8ev = $null
+$global:atCommands_2vn = @("AT", "AT+CLAC")  # Example commands
 
 # Initialization section.
 function Initialize-Script {
@@ -11,41 +11,41 @@ function Initialize-Script {
     Write-Host "`n========================( DongleQuery )========================`n"
 }
 
-# Initialization section.
+# Finalization section.
 function Finalize-Script {
-    Write-Host "`nProcesses completed. Check above for port response information.`n"
-    Start-Sleep -Seconds 5
+    Write-Host "`nProcesses completed; Check details above, then press any key to continue...`n" -NoNewline
+    $null = Read-Host
 }
 
 # Function to request COM port number from the user
 function Request-ComPort {
-    Write-Host "Please enter the COM port number (e.g., 5 for COM5):"
-    $global:comPort = "COM" + (Read-Host)
+    Write-Host "Please enter the COM port number (e.g., 5 for COM5): " -NoNewline
+    $global:comPort_9iv = "COM" + (Read-Host)
 }
 
 # Function to configure the SerialPort object
 function Configure-SerialPort {
-    Write-Host "Configuring SerialPort object for $global:comPort..."
-    $global:serialPort = New-Object System.IO.Ports.SerialPort $global:comPort, 9600, "None", 8, "One"
+    Write-Host "Configuring SerialPort object for $global:comPort_9iv..."
+    $global:serialPort_8ev = New-Object System.IO.Ports.SerialPort $global:comPort_9iv, 9600, "None", 8, "One"
     try {
-        $global:serialPort.Open()
-        Write-Host "Serial port $global:comPort opened successfully."
+        $global:serialPort_8ev.Open()
+        Write-Host "Serial port $global:comPort_9iv opened successfully."
     } catch {
-        Write-Host "Failed to open serial port $global:comPort. Error: $_"
+        Write-Host "Failed to open serial port $global:comPort_9iv. Error: $_"
         exit
     }
 }
 
 # Function to send AT commands to the modem
 function Send-ATCommands {
-    foreach ($atCommand in $global:atCommands) {
-        Write-Host "Sending $atCommand to the modem on $global:comPort..."
+    foreach ($atCommand in $global:atCommands_2vn) {
+        Write-Host "Sending $atCommand to the modem on $global:comPort_9iv..."
         try {
-            $global:serialPort.WriteLine($atCommand + "`r")
+            $global:serialPort_8ev.WriteLine($atCommand + "`r")
             Write-Host "Spam prevention, waiting 2 seconds..."
             Start-Sleep -Seconds 2
             
-            $response = $global:serialPort.ReadExisting()
+            $response = $global:serialPort_8ev.ReadExisting()
             if ($response) {
                 Write-Host "Response for $atCommand: $response"
             } else {
@@ -59,8 +59,8 @@ function Send-ATCommands {
 
 # Function to close the SerialPort connection
 function Close-SerialPort {
-    if ($global:serialPort -ne $null -and $global:serialPort.IsOpen) {
-        $global:serialPort.Close()
+    if ($global:serialPort_8ev -ne $null -and $global:serialPort_8ev.IsOpen) {
+        $global:serialPort_8ev.Close()
         Write-Host "Closing the SerialPort connection..."
     }
 }
