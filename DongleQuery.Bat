@@ -1,79 +1,148 @@
+REM Script: DongleQuery.Bat
+
 @echo off
 
 :: Initialization
-mode con cols=64 lines=45
+mode con cols=64 lines=48
 color 80
-title DongleQuery
+title FilesCollect-Py
 cd /d "%~dp0"
+set ErrorLog=Errors-Crash.Log
 echo.
-echo Launcher Script Initialized...
-echo.
-timeout /t 2 /nobreak >nul
-
-:: Maintenance
-echo Performing Maintenance..
-if exist "BasicInfo.Txt" (
-    echo ..BasicInfo.Txt Found..
-    del "BasicInfo.Txt"
-    echo ..BasicInfo.Txt Deleted..
-) else (
-    echo ..BasicInfo.Txt not found..
-)
-if exist "Commands.Txt" (
-    echo ..Commands.Txt Found..
-    del "Commands.Txt"
-    echo ..Commands.Txt Deleted.
-) else (
-    echo ..Commands.Txt not found.
-)
+echo Launcher Script Started...
 echo.
 timeout /t 2 /nobreak >nul
+echo Cleaning up..
+if exist ".\Errors-Crash.Log" (
+    echo ...Deleting Log...
+    del ".\Errors-Crash.Log"
+)
+echo ..Cleaning Done.
+echo.
+timeout /t 1 /nobreak >nul
 
 :: Main Menu
 :menu
 cls
+echo    ^_^_^_^_                    ^_       ^_^_^_
+echo   ^|  ^_ ^\  ^_^_^_  ^_^_^_^_   ^_^_^_^_^| ^| ^_^_^_ ^/ ^_ ^\ ^_   ^_  ^_^_^_ ^_^_^_^_ ^_   ^_
+echo   ^| ^| ^| ^|^/ ^_ ^\^|  ^_ ^\ ^/ ^_  ^| ^|^/ ^_ ^\ ^| ^| ^| ^| ^| ^|^/ ^_ ^\  ^_^_^| ^| ^| ^|
+echo   ^| ^|^_^| ^| (^_) ^| ^| ^| ^| (^_^| ^| ^|  ^_^_^/ ^|^_^| ^| ^|^_^| ^|  ^_^_^/ ^|  ^| ^|^_^| ^|
+echo   ^|^_^_^_^_^/ ^\^_^_^_^/^|^_^| ^|^_^|^\^_^_  ^|^_^|^\^_^_^_^|^\^_^_^\^_^\^\^_^_^_^_^|^\^_^_^_^|^_^|   ^\^_^_  ^|
+echo                       ^|^_^_^_^/                              ^|^_^_^_^/
+echo.         
+echo ========================( DongleQuery )========================
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo                       1. Run DongleQuery,
+echo.
+echo                     2. Check File Integrity,
+echo.
+echo                       X. Exit Launcher.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo ---------------------------------------------------------------
+
+:: Variables
+set /p choice=Select, Options=1-2, Exit=X: 
+if "%choice%"=="1" goto executeMain
+if "%choice%"=="2" goto checkScript
+if "%choice%"=="x" goto end
+echo Invalid choice. Try again.
+timeout /t 2 /nobreak >nul
+pause
+goto menu
+
+:: Check for presence of powershell core and execute main.py
+:executeMain
+cls
 echo.
 echo ========================( DongleQuery )========================
 echo.
-echo                      1. Basic Dongle Info
-echo                      2. List AT Commands
-echo                       3. AT Console Mode
-echo                        X. Exit Launcher
-echo.
-echo ---------------------------------------------------------------
-set /p choice=Select an option (1-3, X to Exit): 
-echo.
-timeout /t 1 /nobreak >nul
-
-:: Convert choice to lowercase to handle case-insensitivity
-set choice=%choice:~0,1%
-if /i "%choice%"=="x" goto end
-
-echo Checking PowerShell Capabilities..
-timeout /t 1 /nobreak >nul
+echo Detecting Capabilities..
 where pwsh >nul 2>&1
-set pwshAvailable=%ERRORLEVEL%
-
-:: Launching script based on choice
-if %pwshAvailable% equ 0 (set psCmd=pwsh.exe) else (set psCmd=powershell.exe)
-echo ...Launching Script...
-
-if "%choice%"=="1" (
-    %psCmd% -NoProfile -ExecutionPolicy Bypass -File ".\basicinfo.ps1" > ".\BasicInfo.Txt"
-    echo Log saved to ".\BasicInfo.Txt".
-) else if "%choice%"=="2" (
-    %psCmd% -NoProfile -ExecutionPolicy Bypass -File ".\commands.ps1" > ".\Commands.Txt"
-    echo Log saved to ".\Commands.Txt".
-) else if "%choice%"=="3" (
-    %psCmd% -NoProfile -ExecutionPolicy Bypass -File ".\console.ps1"
-    echo Console Mode exited.
+if %ERRORLEVEL% equ 0 (
+    echo ..Launching Psc Script..
+    timeout /t 1 /nobreak >nul
+    pwsh.exe -NoProfile -ExecutionPolicy Bypass -File ".\main.ps1" 2>>".\Errors-Crash.Log"
+    echo.
+	echo ..Psc Process Exited.
+    echo.
+) else (
+    echo ..Launching Ps Script..
+    timeout /t 1 /nobreak >nul
+    powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\main.ps1" 2>>".\Errors-Crash.Log"
+    echo.
+	echo ..Ps Process Exited.
+    echo.
 )
 
+:: Post Powershell Processes
+color 80
+echo Checking Errors-Crash.Log..
+timeout /t 1 /nobreak >nul
+for %%I in (".\Errors-Crash.Log") do if %%~zI==0 (
+    echo ..Errors-Crash.Log Empty..
+) else (
+    echo ..Cleaning Errors-Crash-Log..
+    pwsh.exe -NoProfile -File ".\scripts\cleaner.ps1"
+)
 echo.
 echo Returning to menu..
 timeout /t 2 /nobreak >nul
 goto menu
 
+:: Function to Check File Structure
+:checkScript
+cls
+echo.
+echo ========================( DongleQuery )========================
+echo.
+echo Checking Script Files..
+set missing=0
+timeout /t 1 /nobreak >nul
+if not exist ".\scripts\utility.ps1" set missing=1
+if not exist ".\scripts\display.ps1" set missing=1
+if not exist ".\settings.psd1" set missing=1
+if not exist ".\main.ps1" set missing=1
+if %missing%==1 (
+    echo ..Failure, Re-Install Program!
+) else (
+    echo ..Program Files Correct.
+)
+echo.
+timeout /t 1 /nobreak >nul
+echo Returning to menu..
+echo.
+timeout /t 2 /nobreak >nul
+goto menu
+
+:: End Function
 :end
 echo ...Exit Process Initiated.
 timeout /t 5 /nobreak >nul
