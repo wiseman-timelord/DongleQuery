@@ -11,7 +11,7 @@ function Show-Menu {
     Write-Host "                     1. Set COM Port Used"
     $comDisplay = if ($ComNumber_9hv) { $ComNumber_9hv } else { "None" }
     Write-Host "                            ($comDisplay)`n"
-    Write-Host "                  2. Display Basic Device Info`n`n"
+    Write-Host "                 2. Display Basic Device Info`n`n"
     Write-Host "                  3. Create CommandsList.Txt`n`n"
     Write-Host "                    4. AT Console Interface`n`n"
     Write-Host "`n`n`n`n`n`n`n`n`n`n`n`n`n`n"
@@ -32,17 +32,17 @@ function Get-MenuChoice {
 
 function Request-ComPort {
     Write-Host "Enter COM Port Number (e.g., 3 for COM3): " -NoNewline
-    $comPort = Read-Host
-    if ($comPort -match "^\d+$") { # Ensure input is numeric
-        Write-Host "Selected COM port: COM$comPort"
-        return "COM$comPort"
+    $ComNumber_9hv = Read-Host
+    if ($ComNumber_9hv -match "^\d+$") {
+        Write-Host "Selected COM port: COM$ComNumber_9hv"
+        return "COM$ComNumber_9hv"
     } else {
         Write-Host "Invalid Choice, Try Again!"
         return $null
     }
 }
 
-# Function to display initialization and completion messages for each action
+# display initialization
 function Display-InitializationMessage {
     [Console]::ForegroundColor = [ConsoleColor]::White
     [Console]::BackgroundColor = [ConsoleColor]::DarkGray
@@ -52,7 +52,7 @@ function Display-InitializationMessage {
 	Start-Sleep -Seconds 2
 }
 
-# Function to display initialization and completion messages for each action
+# page title
 function Display-PageTitle {
     Write-Host "`n========================( DongleQuery )========================`n"
 }
