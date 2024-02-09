@@ -55,21 +55,39 @@ function Main {
 				Configure-SerialPort -comPort $global:comPort
                 Send-BasicInfoCommands -serialPort $global:serialPort -commands $global:atCommandsBasicInfo
                 Close-SerialPort -serialPort $global:serialPort
-				Write-Host "`nBasic Info Retrieved, Press Any Key to continue...`n" -NoNewline
+				Write-Host "`nRetrieved; Check Display, Then Press Any Key...`n" -NoNewline
    			    [Console]::ReadKey($true) | Out-Null
             }
-            '3' {  # List AT Commands
+			'3' {  # List AT Commands
                 if ($global:ComNumber_9hv -eq 'None') {
                     Write-Host "Port Not Set!"
                     Start-Sleep -Seconds 2
                     continue
                 }
-                Clear-Host
+				Clear-Host
 				Display-PageTitle
 				Configure-SerialPort -comPort $global:comPort
-                List-ATCommands -serialPort $global:serialPort -commands $global:atCommandsList
-                Close-SerialPort -serialPort $global:serialPort
-            }
+				Write-Host "Setting Up CommandsList.Txt List File.."
+				
+				$titlePart1 = Send-CommandAndGetResponse -serialPort $global:serialPort -command "AT+CGMI"
+				$titlePart2 = Send-CommandAndGetResponse -serialPort $global:serialPort -command "AT+CGMR"
+				
+				if ($titlePart1 -eq $null -or $titlePart2 -eq $null) {
+					Write-Host "..Error Retrieving Basics"
+				} else {
+					Write-Host "..CommandsList.Txt Basics Retrieved.`n"
+					Write-Host "Requesting Commands From Dongle.."
+					$commandsOutput = List-ATCommands -serialPort $global:serialPort -commands $global:atCommandsList
+					$filePath = "CommandsList.Txt"
+					$title = "$titlePart1 - $titlePart2"
+					Export-CommandsToFile -filePath $filePath -titlePart1 $titlePart1 -titlePart2 $titlePart2 -commands $commandsOutput
+					Write-Host "..Retrieved, Saved: $filePath"
+				}
+
+				Close-SerialPort -serialPort $global:serialPort
+				Write-Host "`nCreated; Open CommandsList.Txt, Then Press Any Key...`n" -NoNewline
+				[Console]::ReadKey($true) | Out-Null
+			}
             '4' {  # AT Console Mode
                 if ($global:ComNumber_9hv -eq 'None') {
                     Write-Host "Port Not Set!"

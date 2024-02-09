@@ -8,12 +8,12 @@ function Show-Menu {
     Write-Host ""
 	Write-Host "========================( DongleQuery )========================"
 	Write-Host "`n`n`n`n`n`n`n`n`n`n`n`n`n`n"
-    Write-Host "                        1. Set COM Port"
+    Write-Host "                     1. Set COM Port Used"
     $comDisplay = if ($ComNumber_9hv) { $ComNumber_9hv } else { "None" }
     Write-Host "                            ($comDisplay)`n"
-    Write-Host "                     2. Basic Dongle Info`n`n"
-    Write-Host "                      3. List AT Commands`n`n"
-    Write-Host "                      4. AT Console Mode`n`n"
+    Write-Host "                  2. Display Basic Device Info`n`n"
+    Write-Host "                  3. Create CommandsList.Txt`n`n"
+    Write-Host "                    4. AT Console Interface`n`n"
     Write-Host "`n`n`n`n`n`n`n`n`n`n`n`n`n`n"
 	Write-Host "---------------------------------------------------------------"
 }
