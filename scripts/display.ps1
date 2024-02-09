@@ -20,7 +20,7 @@ function Show-Menu {
 function Get-MenuChoice {
     $choice = $null
     while ($null -eq $choice) {
-        $choice = Read-Host "Select, Options = 1-4, Exit = X: "
+        $choice = Read-Host "Select; Options = 1-4, Exit = X"
         if (-not ('1', '2', '3', '4', 'X' -contains $choice.ToUpper())) {
             Write-Host "Invalid option, please try again."
             $choice = $null
@@ -43,16 +43,15 @@ function Request-ComPort {
 
 # Function to display initialization and completion messages for each action
 function Display-InitializationMessage {
-    param (
-        [string]$message
-    )
-    Write-Host "`n$message`n" -ForegroundColor Cyan
+    [Console]::ForegroundColor = [ConsoleColor]::Black
+    [Console]::BackgroundColor = [ConsoleColor]::DarkGray
+    [Console]::Clear() 
+    Write-Host "`n========================( DongleQuery )========================`n"
+	Write-Host "Powershell Script Initialized...`n"
+	Start-Sleep -Seconds 2
 }
 
 function Display-CompletionMessage {
-    param (
-        [string]$message
-    )
-    Write-Host "`n$message Press any key to continue..." -ForegroundColor Green
-    $null = Read-Host
+    Write-Host "`nExiting Powershell Script...`n"
+	Start-Sleep -Seconds 2
 }

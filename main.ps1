@@ -67,7 +67,7 @@ function Main {
                 Close-SerialPort -serialPort $global:serialPort
             }
             'X' {
-                Write-Host "Exiting program..."
+                Display-CompletionMessage
                 break
             }
         }
@@ -76,4 +76,5 @@ function Main {
 
 
 # Invoke Main Function
+Display-InitializationMessage
 Main
