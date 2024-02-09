@@ -37,7 +37,7 @@ In an attempt to turn off the hotspot feature on my dongle modem, to, reduce pow
 
 
                      1. Set COM Port Used
-                            (COM3)
+                            (None)
 
                   2. Display Basic Device Info
 
