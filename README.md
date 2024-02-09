@@ -136,7 +136,7 @@ S2
 S3
 ...(Shortened)
 ```
-- AT Console Interface  (use the generated CommandsList.Txt)...
+- AT Console Interface  (these are not the droids we are looking for)...
 ```
 ========================( DongleQuery )========================
 
