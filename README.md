@@ -57,8 +57,111 @@ Closing the SerialPort connection...
 
 Processes completed; Check details above, then Press any key...
 ```
-- Commands...
+- List Commands...
 ```
+
+========================( DongleQuery )========================
+
+Please enter the COM port number (e.g., 5 for COM5): 
+Configuring SerialPort object for COM3...
+Serial port COM3 opened successfully.
+
+Sending AT to the modem on COM3...
+Spam prevention, waiting 2 seconds...
+Response for AT: 
+OK
+
+Sending AT+CLAC to the modem on COM3...
+Spam prevention, waiting 2 seconds...
+Response for AT+CLAC: 
+&C
+&D
+&E
+&F
+&S
+&V
+&W
+E
+I
+L
+M
+Q
+V
+X
+Z
+T
+P
+\Q
+\S
+\V
+%V
+D
+A
+H
+O
+S0
+S2
+S3
+S4
+S5
+S6
+S7
+S8
+S9
+S10
+S11
+S30
+S103
+S104
++FCLASS
++ICF
++IFC
++IPR
++GMI
++GMM
++GMR
++GCAP
++GSN
++DR
++DS
++CMEE
+...
+```
+- AT Console Mode...
+```
+
+========================( Console Mode )========================
+
+Please enter the COM port number (e.g., 5 for COM5): 3
+
+Configuring SerialPort object for COM3...
+Serial port COM3 opened successfully.
+
+Enter an AT Command, or X to Exit: +NETMODE
+Command sent: +NETMODE. Waiting for response...
+Response:
+
+Enter an AT Command, or X to Exit: +NETMODE 0
+Command sent: +NETMODE 0. Waiting for response...
+Response:
+
+Enter an AT Command, or X to Exit: +NETMODE 1
+Command sent: +NETMODE 1. Waiting for response...
+Response:
+
+Enter an AT Command, or X to Exit: +NETMODE ON
+Command sent: +NETMODE ON. Waiting for response...
+Response:
+
+Enter an AT Command, or X to Exit: +NETMODE ENABLE
+Command sent: +NETMODE ENABLE. Waiting for response...
+Response:
+
+Enter an AT Command, or X to Exit: NO MANUAL HELP
+Command sent: NO MANUAL HELP. Waiting for response...
+Response:
+
+Enter an AT Command, or X to Exit:
 ```
 
 ### USAGE
