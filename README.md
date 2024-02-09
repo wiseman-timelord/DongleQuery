@@ -17,7 +17,7 @@ In an attempt to turn off the hotspot feature on my dongle modem, to, reduce pow
 - **Psd1 Persistence**: DongleQuery makes use of my "ImpExpPsd1" script, hence, the settings for the COM port are saved to the `settings.psd1`. 
 
 ### PREVIEW
-- Main Menu...
+- Main Menu, where we have 4 options...
 ```
 
 ========================( DongleQuery )========================
@@ -36,19 +36,16 @@ In an attempt to turn off the hotspot feature on my dongle modem, to, reduce pow
 
 
 
-
                      1. Set COM Port Used
-                            (None)
+                            (COM3)
 
-                 2. Print Basic Device Info
-
-
-                 3. Create CommandsList.Txt
+                  2. Display Basic Device Info
 
 
-                  4. AT Console Interface
+                  3. Create CommandsList.Txt
 
 
+                    4. AT Console Interface
 
 
 
@@ -65,7 +62,11 @@ In an attempt to turn off the hotspot feature on my dongle modem, to, reduce pow
 
 
 
-Select, Options = 1-4, Exit = X: :
+
+---------------------------------------------------------------
+Select; Options = 1-4, Exit = X:
+
+
 ```
 - It creates a nice `CommandsList.Txt` to use in the console...
 ```
