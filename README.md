@@ -2,7 +2,7 @@
 
 ### STATUS: 
 Alpha...
-- Main scripts are done, having issues with outputting results to txt file, as the commands the dongle returned were EXTENSIVE.
+- Main scripts are done, having issues with outputting results to, screen AND txt file, at the same time, its one ot the other.
 - I cant use internet AND test updates to this, having to go offline each time I test the new code...bur, its quite frustrating.
 
 ### DESCRIPTION
