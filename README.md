@@ -37,16 +37,16 @@ In an attempt to turn off the hotspot feature on my dongle modem, to, reduce pow
 
 
 
-                        1. Set COM Port
+                     1. Set COM Port Used
                             (None)
 
-                     2. Basic Dongle Info
+                 2. Print Basic Device Info
 
 
-                      3. List AT Commands
+                 3. Create CommandsList.Txt
 
 
-                      4. AT Console Mode
+                  4. AT Console Interface
 
 
 
@@ -67,68 +67,13 @@ In an attempt to turn off the hotspot feature on my dongle modem, to, reduce pow
 
 Select, Options = 1-4, Exit = X: :
 ```
-- Basic Info (from when it was an individual script)...
+- It creates a nice `CommandsList.Txt` to use in the console...
 ```
 
-========================( DongleQuery )========================
-
-Please enter the COM port number (e.g., 5 for COM5): 3
-
-Configuring SerialPort object for COM3...
-Serial port COM3 opened successfully.
-
-Sending AT to the modem on COM3...
-Spam prevention, waiting 2 seconds...
-Response for AT:
-OK
-
-Sending AT+CGMI to the modem on COM3...
-Spam prevention, waiting 2 seconds...
-Response for AT+CGMI:
 QUALCOMM INCORPORATED
+####-####-#-#.#.#-##  #  [### ## #### ##:00:00]
 
-OK
-
-Sending AT+CGMR to the modem on COM3...
-Spam prevention, waiting 2 seconds...
-Response for AT+CGMR:
-#####-####-#-#.#.#-##  #  [### ## #### ##:##:##]
-
-OK
-
-Sending ATI to the modem on COM3...
-Spam prevention, waiting 2 seconds...
-Response for ATI:
-Manufacturer: QUALCOMM INCORPORATED
-Model: 0
-Revision: #####-####-#-#.#.#-##  #  [### ## #### ##:##:##]
-SVN: 00
-IMEI: ###############
-+GCAP: +CGSM
-
-OK
-
-Closing the SerialPort connection...
-
-Processes completed; Check details above, then Press any key...
-```
-- List Commands  (from when it was an individual script)...
-```
-
-========================( DongleQuery )========================
-
-Please enter the COM port number (e.g., 5 for COM5): 
-Configuring SerialPort object for COM3...
-Serial port COM3 opened successfully.
-
-Sending AT to the modem on COM3...
-Spam prevention, waiting 2 seconds...
-Response for AT: 
-OK
-
-Sending AT+CLAC to the modem on COM3...
-Spam prevention, waiting 2 seconds...
-Response for AT+CLAC: 
+Complete Commands List:
 &C
 &D
 &E
@@ -168,19 +113,7 @@ S11
 S30
 S103
 S104
-+FCLASS
-+ICF
-+IFC
-+IPR
-+GMI
-+GMM
-+GMR
-+GCAP
-+GSN
-+DR
-+DS
-+CMEE
-...
+...(Shortened)
 ```
 - AT Console Mode  (from when it was an individual script)...
 ```
