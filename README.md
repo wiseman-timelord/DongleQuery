@@ -15,6 +15,56 @@ In an attempt to turn off the hotspot feature on my dongle modem, to, reduce pow
 - **Auto-Log Cleaning**: The most advanced batch-powershell launcher yet, auto-cleaning the ansi-codes from the "Errors-Crash.Log" upon return to menu. 
 
 ### PREVIEW
+- Main Menu...
+```
+
+========================( DongleQuery )========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        1. Set COM Port
+                            (None)
+
+                     2. Basic Dongle Info
+
+
+                      3. List AT Commands
+
+
+                      4. AT Console Mode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Select, Options = 1-4, Exit = X: :
+```
 - Basic Info (from when it was an individual script)...
 ```
 
