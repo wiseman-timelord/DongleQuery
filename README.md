@@ -6,7 +6,7 @@ Alpha...
 - Basic info should be printed to screen, the console commands list should be saved to a txt, and the console is obviously interactive, so as for user to open commands list in notepad, and use them in the console to test them, or the likes. 
 
 ### DESCRIPTION
-In an attempt to turn off the hotspot feature on my dongle modem, in order to, reduce power usage and optimize performanve, I decided to investigate the AT commands available, thereabouts, this resulted in 2 scripts, then I added a console script, and then it became a program. This program assists people in identifying the hardware/software on their USB Internet Dongle, for, updating or getting a custom ROM, but also like myself in configuring their routers custom AT command. 
+In an attempt to turn off the hotspot feature on my dongle modem, to, reduce power usage and optimize performance, I decided to investigate the AT commands available, thereabouts, this resulted in 2 scripts, then I added a console script, and then it became a program. This program assists people in identifying the hardware/software on their USB Internet Dongle, for, updating or getting a custom ROM, but also like myself in configuring their routers custom AT command. 
 
 ### FEATURES
 - Soon...
