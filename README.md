@@ -174,7 +174,7 @@ Enter AT Command (or 'X' to exit):
 - Usb "Mobile Broadband"/"LTE Modem" with relating com ports.
 
 ### NOTATION
-- If you wish to create a custom AT command for your router, you would use something like this `AT+CGDCONT=1,"IP","**YourAPN**";ATD**YourNumberDialed**`, supposedly you can add to that somehow with some of the commands you found in your command list.
+- If you wish to create a custom AT command for your router, you would use something like this `AT+CGDCONT=1,"IP","**YourAPN**";ATD**YourNumberDialed**`, supposedly you can add to that like this `AT+CGDCONT=1,"IP","**YourAPN**";**YourCustomCommandHere**;ATD**YourNumberDialed**` with some of the commands you found in your command list....I'm still figuring it out.
 - Not easy to make, had to go, offline for testing and online for programming, while testing the code, due to port status.
 - This program has a theme tune, sing along now.. ["Dongle Query..."](https://www.youtube.com/watch?v=QGKiC2suCHQ)
 
