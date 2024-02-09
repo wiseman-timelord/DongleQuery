@@ -12,7 +12,8 @@ Alpha. 3 scripts and launcher are done, re-making it into an actual program, fin
 In an attempt to turn off the hotspot feature on my dongle modem, to, reduce power usage and optimize performance, I decided to investigate the AT commands available, thereabouts, this resulted in 2 scripts, then I added a console script, and then it became a program. This program assists people in identifying the hardware/software on their USB Internet Dongle, for, updating or getting a custom ROM, but also like myself in configuring their routers custom AT command. 
 
 ### FEATURES
-- **Auto-Log Cleaning**: The most advanced batch-powershell launcher yet, auto-cleaning the ansi-codes from the "Errors-Crash.Log" upon return to menu. 
+- **Auto-Log Cleaning**: The most advanced batch-powershell launcher yet, auto-cleaning the ansi-codes from the "Errors-Crash.Log" upon return to menu.
+- **Custom Interface**: The interface has been stretched in order to produce optimal display on basic Info screen, and long console sessions. 
 
 ### PREVIEW
 - Main Menu...
