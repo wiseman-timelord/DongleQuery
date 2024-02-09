@@ -2,7 +2,8 @@
 
 ### STATUS: 
 Alpha...
-- Main scripts are done, having issues with outputting results to txt file, as the commands the dongle returned were EXTENSIVE. I cant use internet AND test this, its quite frustrating.
+- Main scripts are done, having issues with outputting results to txt file, as the commands the dongle returned were EXTENSIVE.
+- I cant use internet AND test this, its quite frustrating.
 
 ### DESCRIPTION
 In an attempt to turn off the hotspot feature on my dongle modem, in order to, reduce power usage and optimize performanve, I decided to investigate the AT commands available, therein, I may have future dongles I wish to interact with, hence, I made a program to do, just that and a little more. This program will also assist people identify the hardware/software on their Dongle, for example, updating or getting a custom ROM for, the Dongle. 
