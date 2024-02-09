@@ -4,7 +4,7 @@
 Working.
 
 ### DESCRIPTION
-A comprehensive tool designed to facilitate interactions with hardware dongles through a serial port interface. The program consists of a batch file launcher (DongleQuery.Bat) that initializes the environment, provides a user interface for selecting actions, and manages the execution of PowerShell scripts for detailed operations. The PowerShell scripts include functionalities for displaying menus, handling serial port communication, executing commands, and managing configuration settings through a PSD1 file. This setup allows for modular and flexible interactions with hardware devices, specifically focusing on sending commands and processing responses through a serial interface.
+A comprehensive tool designed to facilitate interactions with hardware dongles through a serial port interface. The program consists of a batch file launcher (DongleQuery.Bat) that initializes the environment, provides a user interface for selecting actions, and manages the execution of PowerShell scripts for detailed operations. The PowerShell scripts include functionalities for displaying menus, handling serial port communication, executing commands, and managing configuration settings through a PSD1 file. This setup allows for users to better determine strings of custom AT commands, for example, for use with configuring their routers.
 
 ### FEATURES
 
