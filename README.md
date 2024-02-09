@@ -4,12 +4,18 @@
 Working.
 
 ### DESCRIPTION
-In an attempt to turn off the hotspot feature on my dongle modem, to, reduce power usage and optimize performance, I decided to investigate the AT commands available, thereabouts, this resulted in 2 scripts, then I added a console script, and then it became a program. This program assists people in identifying the hardware/software on their USB Internet Dongle, for, updating or getting a custom ROM, but also like myself in configuring their routers custom AT command. 
+A comprehensive tool designed to facilitate interactions with hardware dongles through a serial port interface. The program consists of a batch file launcher (DongleQuery.Bat) that initializes the environment, provides a user interface for selecting actions, and manages the execution of PowerShell scripts for detailed operations. The PowerShell scripts include functionalities for displaying menus, handling serial port communication, executing commands, and managing configuration settings through a PSD1 file. This setup allows for modular and flexible interactions with hardware devices, specifically focusing on sending commands and processing responses through a serial interface.
 
 ### FEATURES
-- **Auto-Log Cleaning**: The most advanced batch-powershell launcher yet, auto-cleaning the ansi-codes from the "Errors-Crash.Log" upon return to menu.
+
+Adjusting for a closer alignment with the desired average line length and maintaining concise detail:
+
+### FEATURES
+- **Device Information**: Output of, basic device information to screen and a exported commands list for the device to txt file. 
 - **Custom Interface**: The interface has been stretched in order to produce optimal display on basic Info screen, and longer console sessions.
-- **Psd1 Persistence**: DongleQuery makes use of my "ImpExpPsd1" script, hence, the settings for the COM port are saved to the `settings.psd1`. 
+- **Psd1 Persistence**: DongleQuery makes use of my "ImpExpPsd1" script, hence, the settings for the COM port are saved to the `settings.psd1`.
+- **Serial Communication**: Employs intricate dongle communications console, supporting nuanced command execution and response analysis.
+- **Auto-Log Cleaning**: The most advanced batch-powershell launcher yet, auto-cleaning the ansi-codes from the "Errors-Crash.Log" upon return to menu.
 
 ### PREVIEW
 - Main Menu, where we have 4 options...
