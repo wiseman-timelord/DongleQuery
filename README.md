@@ -13,7 +13,7 @@ In an attempt to turn off the hotspot feature on my dongle modem, to, reduce pow
 
 ### FEATURES
 - **Auto-Log Cleaning**: The most advanced batch-powershell launcher yet, auto-cleaning the ansi-codes from the "Errors-Crash.Log" upon return to menu.
-- **Custom Interface**: The interface has been stretched in order to produce optimal display on basic Info screen, and long console sessions. 
+- **Custom Interface**: The interface has been stretched in order to produce optimal display on basic Info screen, and longer console sessions. 
 
 ### PREVIEW
 - Main Menu...
