@@ -5,22 +5,23 @@ function Show-Menu {
         [string]$ComNumber_9hv
     )
     Clear-Host
-    Write-Host "`n========================( DongleQuery )========================`n"
+    Write-Host ""
+	Write-Host "========================( DongleQuery )========================"
+	Write-Host "`n`n`n`n`n`n`n`n`n`n`n`n`n`n`n"
+    Write-Host "                        1. Set COM Port"
     $comDisplay = if ($ComNumber_9hv) { $ComNumber_9hv } else { "None" }
-    Write-Host "                            COM: $comDisplay"
-    Write-Host "1. Basic Dongle Info"
-    Write-Host "2. List AT Commands"
-    Write-Host "3. AT Console Mode"
-    Write-Host "P. Set COM Port"
-    Write-Host "X. Exit"
-    Write-Host
+    Write-Host "                            ($comDisplay)`n"
+    Write-Host "                     2. Basic Dongle Info`n`n"
+    Write-Host "                      3. List AT Commands`n`n"
+    Write-Host "                      4. AT Console Mode`n`n"
+    Write-Host "`n`n`n`n`n`n`n`n`n`n`n`n`n`n`n"
 }
 
 function Get-MenuChoice {
     $choice = $null
     while ($null -eq $choice) {
-        $choice = Read-Host "Select, Options = 1-3, Set Port = P, Exit = X: "
-        if (-not ('1', '2', '3', 'P', 'X' -contains $choice.ToUpper())) {
+        $choice = Read-Host "Select, Options = 1-4, Exit = X: "
+        if (-not ('1', '2', '3', '4', 'X' -contains $choice.ToUpper())) {
             Write-Host "Invalid option, please try again."
             $choice = $null
         }

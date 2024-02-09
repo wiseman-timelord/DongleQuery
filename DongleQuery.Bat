@@ -49,9 +49,12 @@ echo.
 echo.
 echo                       1. Run DongleQuery,
 echo.
+echo.
 echo                     2. Check File Integrity,
 echo.
-echo                       X. Exit Launcher.
+echo.
+echo                        X. Exit Launcher.
+echo.
 echo.
 echo.
 echo.
@@ -84,17 +87,14 @@ cls
 echo.
 echo ========================( DongleQuery )========================
 echo.
-echo Detecting Capabilities..
 where pwsh >nul 2>&1
 if %ERRORLEVEL% equ 0 (
-    echo ..Launching Psc Script..
     timeout /t 1 /nobreak >nul
     pwsh.exe -NoProfile -ExecutionPolicy Bypass -File ".\main.ps1" 2>>".\Errors-Crash.Log"
     echo.
 	echo ..Psc Process Exited.
     echo.
 ) else (
-    echo ..Launching Ps Script..
     timeout /t 1 /nobreak >nul
     powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\main.ps1" 2>>".\Errors-Crash.Log"
     echo.
