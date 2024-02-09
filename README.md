@@ -1,11 +1,8 @@
 # DongleQuery
 
 ### STATUS: 
-Alpha. 3 scripts and launcher are done, re-making it into an actual program, finish tomorrow...
-- Basic info should be printed to screen, the console commands list should be saved to a txt, and the console is obviously interactive, so as for user to open commands list in notepad, and use them in the console to test them, or the likes.
-- use info regarding name of dongle, to name, the file and page title for commands list output.
-- re-clone batch from other recent project, then update.
-- testing & bugfix.
+Beta. finishing touches...
+- Safe Variables
 
 
 ### DESCRIPTION
@@ -116,38 +113,29 @@ S103
 S104
 ...(Shortened)
 ```
-- AT Console Mode  (from when it was an individual script)...
+- AT Console Interface  (use the generated CommandsList.Txt)...
 ```
 
-========================( Console Mode )========================
+========================( DongleQuery )========================
 
-Please enter the COM port number (e.g., 5 for COM5): 3
-
-Configuring SerialPort object for COM3...
-Serial port COM3 opened successfully.
+Port COM3 Opened Successfully.
 
 Enter an AT Command, or X to Exit: +NETMODE
-Command sent: +NETMODE. Waiting for response...
 Response:
 
 Enter an AT Command, or X to Exit: +NETMODE 0
-Command sent: +NETMODE 0. Waiting for response...
 Response:
 
 Enter an AT Command, or X to Exit: +NETMODE 1
-Command sent: +NETMODE 1. Waiting for response...
 Response:
 
 Enter an AT Command, or X to Exit: +NETMODE ON
-Command sent: +NETMODE ON. Waiting for response...
 Response:
 
 Enter an AT Command, or X to Exit: +NETMODE ENABLE
-Command sent: +NETMODE ENABLE. Waiting for response...
 Response:
 
 Enter an AT Command, or X to Exit: NO MANUAL HELP
-Command sent: NO MANUAL HELP. Waiting for response...
 Response:
 
 Enter an AT Command, or X to Exit:
