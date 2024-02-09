@@ -7,10 +7,10 @@ function Configure-SerialPort {
     $global:serialPort = New-Object System.IO.Ports.SerialPort $comPort, 9600, "None", 8, "One"
     try {
         $global:serialPort.Open()
-        Write-Host "Serial port $comPort opened successfully."
+        Write-Host "Port $comPort Opened Successfully...`n"
     }
     catch {
-        Write-Host "Failed to open serial port $comPort. Error: $_"
+        Write-Host "Port Failed $comPort. Error: $_"
         exit
     }
 }
@@ -21,7 +21,7 @@ function Close-SerialPort {
     )
     if ($serialPort -ne $null -and $serialPort.IsOpen) {
         $serialPort.Close()
-        Write-Host "Closed serial port."
+        Write-Host "...Sequence Complete, Port $comPort Closed."
     }
 }
 

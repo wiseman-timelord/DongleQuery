@@ -9,7 +9,7 @@
 $settingsPath = ".\settings.psd1"
 $ConfigData = Import-PowerShellData1 -Path $settingsPath
 $global:ComNumber_9hv = $ConfigData.ComPort
-$global:comPort = $null
+$global:comPort = if ($global:ComNumber_9hv -ne 'None') { $global:ComNumber_9hv } else { $null }
 $global:serialPort = $null
 
 # Variable Lists
@@ -50,9 +50,13 @@ function Main {
                     Start-Sleep -Seconds 2
                     continue
                 }
-                Configure-SerialPort -comPort $global:comPort
+                Clear-Host
+				Display-PageTitle
+				Configure-SerialPort -comPort $global:comPort
                 Send-BasicInfoCommands -serialPort $global:serialPort -commands $global:atCommandsBasicInfo
                 Close-SerialPort -serialPort $global:serialPort
+				Write-Host "`nBasic Info Retrieved, Press Any Key to continue...`n" -NoNewline
+   			    [Console]::ReadKey($true) | Out-Null
             }
             '3' {  # List AT Commands
                 if ($global:ComNumber_9hv -eq 'None') {
@@ -60,7 +64,9 @@ function Main {
                     Start-Sleep -Seconds 2
                     continue
                 }
-                Configure-SerialPort -comPort $global:comPort
+                Clear-Host
+				Display-PageTitle
+				Configure-SerialPort -comPort $global:comPort
                 List-ATCommands -serialPort $global:serialPort -commands $global:atCommandsList
                 Close-SerialPort -serialPort $global:serialPort
             }

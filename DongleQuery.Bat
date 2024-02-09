@@ -9,10 +9,7 @@ title FilesCollect-Py
 cd /d "%~dp0"
 set ErrorLog=Errors-Crash.Log
 echo.
-echo Launcher Script Started...
-echo.
-timeout /t 2 /nobreak >nul
-echo Cleaning up..
+echo Performing Maintenance..
 if exist ".\Errors-Crash.Log" (
     echo ...Deleting Log...
     del ".\Errors-Crash.Log"
@@ -20,6 +17,9 @@ if exist ".\Errors-Crash.Log" (
 echo ..Cleaning Done.
 echo.
 timeout /t 1 /nobreak >nul
+echo Launcher Script Initialized...
+echo.
+timeout /t 2 /nobreak >nul
 
 :: Main Menu
 :menu
@@ -114,7 +114,7 @@ for %%I in (".\Errors-Crash.Log") do if %%~zI==0 (
 )
 echo.
 echo Returning to menu..
-timeout /t 2 /nobreak >nul
+timeout /t 3 /nobreak >nul
 goto menu
 
 :: Function to Check File Structure

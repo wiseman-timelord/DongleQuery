@@ -44,12 +44,17 @@ function Request-ComPort {
 
 # Function to display initialization and completion messages for each action
 function Display-InitializationMessage {
-    [Console]::ForegroundColor = [ConsoleColor]::Black
+    [Console]::ForegroundColor = [ConsoleColor]::White
     [Console]::BackgroundColor = [ConsoleColor]::DarkGray
     [Console]::Clear() 
-    Write-Host "`n========================( DongleQuery )========================`n"
+    Display-PageTitle
 	Write-Host "Powershell Script Initialized...`n"
 	Start-Sleep -Seconds 2
+}
+
+# Function to display initialization and completion messages for each action
+function Display-PageTitle {
+    Write-Host "`n========================( DongleQuery )========================`n"
 }
 
 function Display-CompletionMessage {
