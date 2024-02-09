@@ -181,7 +181,7 @@ Enter an AT Command, or X to Exit:
 - Usb "Mobile Broadband"/"LTE Modem" with relating com ports.
 
 ### NOTATION
-- Not easy to make, had to go, offline for testing and online for programming, each time I test the new code.
+- Not easy to make, had to go, offline for testing and online for programming, while testing the code, due to port status.
 - Sing along now.. ["Dongle Query..."](https://www.youtube.com/watch?v=QGKiC2suCHQ)
 
 ## DISCLAIMER
