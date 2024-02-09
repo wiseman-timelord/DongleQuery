@@ -152,15 +152,21 @@ Enter AT Command (or 'X' to exit):
 
 
 
+
+
+
+
+
+
 ```
 
 ### USAGE
-1. Go to "Device Manager", and look at what Com Ports are being used, in my case the modem was using 2 com ports, one for active and one for inactive, I needed the one for inactive states, though you may test other ones.
-2. Ensure your Dongle Modem is OFF, so as to not be connected to the internet on it.
-3. Run "DongleQuery.Bat", select the relevant script you wish to test, it will run that script.
-4. Enter the Com Port number you got from "Device Manager", the script will then send the relevant commands on the relevant Com Port.
-5. Review the output, if there are errors, try other Com Ports you found; otherwise the commands dont work on your specific Modem; After the script runs it will pause.
-6. After breaking the Pause, choose, to run the other relating number of the script or to "Exit Menu" with 'x'.
+1. Open "Device Manager" on your computer to find the COM Port number used by your dongle modem. Pay attention to the COM Port it uses for inactive states.
+2. Ensure your dongle modem is not connected to the internet, while for any relating applications to be closed, to prevent any interference during the execution process.
+3. Execute the "DongleQuery.Bat", and then select option 1, this action launches the powershell script.
+5. When the menu appears, then select 1 to enter the COM Port number you identified from the "Device Manager".
+6. Select the option 2 if you want some basic info about your device, and if you want a commands list for you device, then select option 3, and if you want to mess around on the console select option 4, but ensure to know what you are doing.
+7. Upon completion of your tasks in DongleQuery, then close the program from the menu by entering 'X', and you may so choose to do this again on the Launcher Menu.
 
 ### REQUIREMENTS
 - Windows Batch Support
