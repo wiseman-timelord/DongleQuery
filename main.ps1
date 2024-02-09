@@ -3,12 +3,16 @@
 # Load external scripts
 . .\scripts\display.ps1
 . .\scripts\utility.ps1
+. .\scripts\impexppsd1.ps1
 
 # Global Variables
+$settingsPath = ".\settings.psd1"
+$ConfigData = Import-PowerShellData1 -Path $settingsPath
+$global:ComNumber_9hv = $ConfigData.ComPort
 $global:comPort = $null
 $global:serialPort = $null
-$global:ComNumber_9hv = 'None'  # Corrected global variable declaration
-# Consolidating AT commands into a single variable, considering both sets for different functionalities
+
+# Variable Lists
 $global:atCommandsBasicInfo = @(
     "AT",
     "AT+CGMI",  # Manufacturer identification
@@ -31,11 +35,15 @@ function Main {
                 if ($port -ne $null) {
                     $global:comPort = $port
                     $global:ComNumber_9hv = $port
+                    # Save updated setting to PSD1 file
+                    $ConfigData.ComPort = $port
+                    Export-PowerShellData1 -Data $ConfigData -Path $settingsPath
                 } else {
                     Write-Host "Invalid COM port. Please try again."
                     Start-Sleep -Seconds 2
                 }
             }
+
             '2' {  # Basic Dongle Info
                 if ($global:ComNumber_9hv -eq 'None') {
                     Write-Host "Port Not Set!"

@@ -1,0 +1,3 @@
+@{
+    ComPort = "None"
+}

@@ -7,14 +7,15 @@ function Show-Menu {
     Clear-Host
     Write-Host ""
 	Write-Host "========================( DongleQuery )========================"
-	Write-Host "`n`n`n`n`n`n`n`n`n`n`n`n`n`n`n"
+	Write-Host "`n`n`n`n`n`n`n`n`n`n`n`n`n`n"
     Write-Host "                        1. Set COM Port"
     $comDisplay = if ($ComNumber_9hv) { $ComNumber_9hv } else { "None" }
     Write-Host "                            ($comDisplay)`n"
     Write-Host "                     2. Basic Dongle Info`n`n"
     Write-Host "                      3. List AT Commands`n`n"
     Write-Host "                      4. AT Console Mode`n`n"
-    Write-Host "`n`n`n`n`n`n`n`n`n`n`n`n`n`n`n"
+    Write-Host "`n`n`n`n`n`n`n`n`n`n`n`n`n`n"
+	Write-Host "---------------------------------------------------------------"
 }
 
 function Get-MenuChoice {
@@ -22,7 +23,7 @@ function Get-MenuChoice {
     while ($null -eq $choice) {
         $choice = Read-Host "Select; Options = 1-4, Exit = X"
         if (-not ('1', '2', '3', '4', 'X' -contains $choice.ToUpper())) {
-            Write-Host "Invalid option, please try again."
+            Write-Host "Invalid Choice, Try Again!"
             $choice = $null
         }
     }
@@ -30,13 +31,13 @@ function Get-MenuChoice {
 }
 
 function Request-ComPort {
-    Write-Host "Please enter the COM port number (e.g., 5 for COM5): " -NoNewline
+    Write-Host "Enter COM Port Number (e.g., 3 for COM3): " -NoNewline
     $comPort = Read-Host
     if ($comPort -match "^\d+$") { # Ensure input is numeric
         Write-Host "Selected COM port: COM$comPort"
         return "COM$comPort"
     } else {
-        Write-Host "Invalid COM port number. Please ensure you enter a numeric value."
+        Write-Host "Invalid Choice, Try Again!"
         return $null
     }
 }
