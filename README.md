@@ -2,8 +2,8 @@
 
 ### STATUS: 
 Alpha...
+- Needs to have, a `.\main.ps1` with a menu and a `.\scripts\` folder for the others, then make the batch standardized, and make an actual program out of it.  
 - Main scripts are done, having issues with outputting results to, screen AND txt file, at the same time, its one ot the other.
-- I cant use internet AND test updates to this, having to go offline each time I test the new code...bur, its quite frustrating.
 
 ### DESCRIPTION
 In an attempt to turn off the hotspot feature on my dongle modem, in order to, reduce power usage and optimize performanve, I decided to investigate the AT commands available, therein, I may have future dongles I wish to interact with, hence, I made a program to do, just that and a little more. This program will also assist people identify the hardware/software on their Dongle, for example, updating or getting a custom ROM for, the Dongle. 
@@ -178,7 +178,8 @@ Enter an AT Command, or X to Exit:
 - Usb "Mobile Broadband"/"LTE Modem" with relating com ports.
 
 ### NOTATION
+- Not easy to make, had to go, offline for testing and online for programming, each time I test the new code.
 - Sing along now.. ["Dongle Query..."](https://www.youtube.com/watch?v=QGKiC2suCHQ)
-  
+
 ## DISCLAIMER
 This software is subject to the terms in License.Txt, covering usage, distribution, and modifications. For full details on your rights and obligations, refer to License.Txt.
