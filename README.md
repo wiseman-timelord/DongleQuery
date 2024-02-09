@@ -1,6 +1,6 @@
 # DongleQuery
 
-### STATUS: 
+### STATUS
 Working.
 
 ### DESCRIPTION
