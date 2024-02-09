@@ -27,12 +27,6 @@ In an attempt to turn off the hotspot feature on my dongle modem, to, reduce pow
 
 
 
-
-
-
-
-
-
                      1. Set COM Port Used
                             (None)
 
@@ -52,18 +46,54 @@ In an attempt to turn off the hotspot feature on my dongle modem, to, reduce pow
 
 
 
-
-
-
-
-
-
-
-
 ---------------------------------------------------------------
 Select; Options = 1-4, Exit = X:
 
 
+```
+- Oh such useful Basic Device Info, I could find a custom ROM from this...
+```
+========================( DongleQuery )========================
+
+Port COM# Opened Successfully...
+
+Sending command: AT
+Response:
+OK
+
+Sending command: AT+CGMI
+Response:
+QUALCOMM INCORPORATED
+
+OK
+
+Sending command: AT+CGMM
+Response:
+0
+
+OK
+
+Sending command: AT+CGMR
+Response:
+MDM9K-CIGO-U-7.3.9-4M  1  [Jan 19 2012 21:00:00]
+
+OK
+
+Sending command: ATI
+Response:
+Manufacturer: QUALCOMM INCORPORATED
+Model: 0
+Revision: MDM9K-CIGO-U-7.3.9-4M  1  [Jan 19 2012 21:00:00]
+SVN: 00
+IMEI: ###########
++GCAP: +CGSM
+
+OK
+
+
+...Sequence Complete, Port COM# Closed.
+
+Retrieved; Check Display, Then Press Any Key...
 ```
 - It creates a nice `CommandsList.Txt` to use in the console...
 ```
@@ -100,45 +130,24 @@ O
 S0
 S2
 S3
-S4
-S5
-S6
-S7
-S8
-S9
-S10
-S11
-S30
-S103
-S104
 ...(Shortened)
 ```
 - AT Console Interface  (use the generated CommandsList.Txt)...
 ```
-
 ========================( DongleQuery )========================
 
-Port COM3 Opened Successfully.
+Port COM3 Opened Successfully...
 
-Enter an AT Command, or X to Exit: +NETMODE
+Enter AT Command (or 'X' to exit): ^WIMODE 0
 Response:
 
-Enter an AT Command, or X to Exit: +NETMODE 0
+Enter AT Command (or 'X' to exit): HELP THERES NO MANUAL!
 Response:
 
-Enter an AT Command, or X to Exit: +NETMODE 1
-Response:
+Enter AT Command (or 'X' to exit):
 
-Enter an AT Command, or X to Exit: +NETMODE ON
-Response:
 
-Enter an AT Command, or X to Exit: +NETMODE ENABLE
-Response:
 
-Enter an AT Command, or X to Exit: NO MANUAL HELP
-Response:
-
-Enter an AT Command, or X to Exit:
 ```
 
 ### USAGE
