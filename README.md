@@ -182,7 +182,7 @@ Enter an AT Command, or X to Exit:
 
 ### NOTATION
 - Not easy to make, had to go, offline for testing and online for programming, while testing the code, due to port status.
-- Sing along now.. ["Dongle Query..."](https://www.youtube.com/watch?v=QGKiC2suCHQ)
+- This program has a theme tune, sing along now.. ["Dongle Query..."](https://www.youtube.com/watch?v=QGKiC2suCHQ)
 
 ## DISCLAIMER
 This software is subject to the terms in License.Txt, covering usage, distribution, and modifications. For full details on your rights and obligations, refer to License.Txt.
