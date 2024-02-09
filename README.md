@@ -174,7 +174,7 @@ Enter AT Command (or 'X' to exit):
 - Usb "Mobile Broadband"/"LTE Modem" with relating com ports.
 
 ### NOTATION
-- If you wish to create a custom AT command for your router, you would use something like this `AT+CGDCONT=1,"IP","**YourAPN**";ATD**YourNumberDialed**`, supposedly you can add to that like this `AT+CGDCONT=1,"IP","**YourAPN**";**YourCustomCommandHere**;ATD**YourNumberDialed**` with some of the commands you found in your command list, such as for example `AT+CGDCONT=1,"IP","**YourAPN**";^APN=OFF;ATD**YourNumberDialed**`....I'm still figuring it out.
+- In an effort to craft a custom AT command for my router, it turned out I required something like `AT+CGDCONT=1,"IP","**YourAPN**";ATD**YourNumberDialed**`, supposedly I could add to that like this `AT+CGDCONT=1,"IP","**YourAPN**";**YourCustomCommandHere**;ATD**YourNumberDialed**` with some of the commands I found in the command list from DongleQuery, such as for example `AT+CGDCONT=1,"IP","**YourAPN**";AT+WIFI=0;ATD**YourNumberDialed**`...however, none of the commands I tried worked, and when I tried to register with "developer.qualcomm.com", I was unable to log in after registering on their website with, Edge and WaterFox. Additionally I produced extensive research into finding out how these commands were supposed to work...AND NOTHING, DAMN, DAMN, DAMN, DAMN!
 - Not easy to make, had to go, offline for testing and online for programming, while testing the code, due to port status.
 - This program has a theme tune, sing along now.. ["Dongle Query..."](https://www.youtube.com/watch?v=QGKiC2suCHQ)
 
