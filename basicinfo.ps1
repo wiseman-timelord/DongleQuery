@@ -1,3 +1,5 @@
+# basicinfo.ps1
+
 # Global Variables
 $global:comPort_3io = $null
 $global:serialPort_5fd = $null

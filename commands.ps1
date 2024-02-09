@@ -3,7 +3,10 @@
 # Global Variables
 $global:comPort_9iv = $null
 $global:serialPort_8ev = $null
-$global:atCommands_2vn = @("AT", "AT+CLAC")  # Example commands
+$global:atCommands_2vn = @(
+    "AT",
+    "AT+CLAC"  # List Commands
+)
 
 # Initialization section.
 function Initialize-Script {
@@ -13,7 +16,7 @@ function Initialize-Script {
 
 # Finalization section.
 function Finalize-Script {
-    Write-Host "`nProcesses completed; Check details above, then press any key to continue...`n" -NoNewline
+    Write-Host "`nProcesses completed; Check details above, then Press any key...`n" -NoNewline
     $null = Read-Host
 }
 
@@ -21,6 +24,7 @@ function Finalize-Script {
 function Request-ComPort {
     Write-Host "Please enter the COM port number (e.g., 5 for COM5): " -NoNewline
     $global:comPort_9iv = "COM" + (Read-Host)
+	Write-Host
 }
 
 # Function to configure the SerialPort object
@@ -34,6 +38,7 @@ function Configure-SerialPort {
         Write-Host "Failed to open serial port $global:comPort_9iv. Error: $_"
         exit
     }
+	Write-Host
 }
 
 # Function to send AT commands to the modem
@@ -47,7 +52,7 @@ function Send-ATCommands {
             
             $response = $global:serialPort_8ev.ReadExisting()
             if ($response) {
-                Write-Host "Response for $atCommand: $response"
+                Write-Host "Response for $($atCommand): $response"  # Corrected line here
             } else {
                 Write-Host "No response received for $atCommand."
             }
