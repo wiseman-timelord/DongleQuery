@@ -103,7 +103,7 @@ Retrieved; Check Display, Then Press Any Key...
 ```
 
 QUALCOMM INCORPORATED
-####-####-#-#.#.#-##  #  [### ## #### ##:00:00]
+MDM9K-CIGO-U-7.3.9-4M  1  [Jan 19 2012 21:00:00]
 
 Complete Commands List:
 &C
