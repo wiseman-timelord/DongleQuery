@@ -136,7 +136,7 @@ S2
 S3
 ...(Shortened)
 ```
-- AT Console Interface, if one knows how to use it... >_>
+- AT Console Interface, if one knows how to use it, I clearly don't!...
 ```
 ========================( DongleQuery )========================
 
