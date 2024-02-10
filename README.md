@@ -55,7 +55,7 @@ Select; Options = 1-4, Exit = X:
 
 
 ```
-- Oh such useful Basic Device Info, I could find a custom ROM from this...
+- Oh such useful Basic Device Info, one could find a custom ROM from this data...
 ```
 ========================( DongleQuery )========================
 
@@ -99,7 +99,7 @@ OK
 
 Retrieved; Check Display, Then Press Any Key...
 ```
-- It creates a nice `CommandsList.Txt` to use in the console...
+- It creates a nice `CommandsList.Txt` to use in, the console or custom AT commands...
 ```
 
 QUALCOMM INCORPORATED
@@ -136,7 +136,7 @@ S2
 S3
 ...(Shortened)
 ```
-- AT Console Interface  (these are not the droids we are looking for)...
+- AT Console Interface, if one knows how to use it... >_>
 ```
 ========================( DongleQuery )========================
 
