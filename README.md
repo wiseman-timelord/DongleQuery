@@ -171,7 +171,7 @@ Enter AT Command (or 'X' to exit):
 ### REQUIREMENTS
 - Windows Batch Support
 - Pwsh/PowerShell (As are compatible with scripts)
-- Usb "Mobile Broadband"/"LTE Modem" with relating com ports.
+- Usb Mobile Broadband Dongle with COM ports.
 
 ### NOTATION
 - In an effort to craft a custom AT command for my router, it turned out I required something like `AT+CGDCONT=1,"IP","**YourAPN**";ATD**YourNumberDialed**`, supposedly I could add to that like this `AT+CGDCONT=1,"IP","**YourAPN**";**YourCustomCommandHere**;ATD**YourNumberDialed**` with some of the commands I found in the command list from DongleQuery, such as for example `AT+CGDCONT=1,"IP","**YourAPN**";AT+WIFI=0;ATD**YourNumberDialed**`...however, none of the commands I tried worked. Additionally I produced research into finding out how these commands were supposed to work, at some point in the furture I will produce further research, and possibly find the answer, or otherwise hopefully Qualcomm support will get back to me with the answer.
